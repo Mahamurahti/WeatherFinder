@@ -29,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -47,6 +48,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -58,7 +60,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589563127408</updated>
-      <workItem from="1589563145588" duration="737000" />
+      <workItem from="1589563145588" duration="2777000" />
     </task>
     <servers />
   </component>
@@ -75,5 +77,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="601" y="291" width="740" height="596" key="#Notifications" timestamp="1589563933814">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="601" y="291" width="740" height="596" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1589563933814" />
   </component>
 </project>
