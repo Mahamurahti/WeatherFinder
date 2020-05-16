@@ -21,7 +21,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 main{
-    margin-left: 5rem;
+    margin-left: 6rem;
     padding: 1rem;
     text-align: center;
 }
@@ -30,7 +30,7 @@ main{
 }
 
 .navBar{
-    width: 5rem;
+    width: 7rem;
     height: 100vh;
     position: fixed;
     background-color: black;
@@ -40,7 +40,7 @@ main{
     transition: 200ms ease;
 }
 .navBar:hover{
-    width: 16rem;
+    width: 18rem;
 }
 .navBar:hover .navLink p{
     display: block;
@@ -58,7 +58,8 @@ main{
     width: 100%;
 }
 .navItem img {
-    width: 4.5rem;
+    max-width: 3rem;
+    padding: 2rem;
 }
 .navItem:last-child{
     margin-top: auto;

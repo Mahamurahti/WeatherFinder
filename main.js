@@ -13,17 +13,9 @@ function getPosition(position) {
         console.log(json);
         const sec = document.getElementById('weather');
 
-        if(json.weather[0].main === "Rain"){
-            sec.innerHTML = `<img src="icons/Icon_RainDay.png">
-                            <h2>${json.weather[0].main}<p><br>${json.weather[0].description}</p></p>
-                            <p id="temp">Temperature: ${json.main.temp} °C</p>`;
-        }
-
-            /*
         sec.innerHTML = `<img src="http://openweathermap.org/img/wn/${json.weather[0].icon}@2x.png">
                             <h2>${json.weather[0].main}<p><br>${json.weather[0].description}</p></p>
                             <p id="temp">Temperature: ${json.main.temp} °C</p>`;
-                            */
     }).catch(function (error) {
         console.log('Error: ' + error);
     });
