@@ -4,12 +4,14 @@ let currentLocation = navigator.geolocation.getCurrentPosition(getWeatherData, e
 
 function getWeatherData(position) {
     currentLocation = position.coords;
+    console.log('%c Current coordinates: [' + currentLocation.latitude + ", " + currentLocation.longitude + "]", "color:orangered; font-weight:bold;");
     // Fetching Weather data from Openweathermap
     // API key: c50d08ff7a7d0ee1c09a3f597d3e83bc
     fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${currentLocation.latitude}&lon=${currentLocation.longitude}&units=metric&lang=en&appid=c50d08ff7a7d0ee1c09a3f597d3e83bc`).then(function (response) {
         return response.json();
     }).then(function (json) {
+        console.log('%c Fetched from Openweathermap', 'color: orangered; font-weight:bold;');
         console.log(json);
         const sec = document.getElementById('weather');
 
