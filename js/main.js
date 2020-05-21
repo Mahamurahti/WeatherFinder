@@ -14,55 +14,61 @@ function getWeatherData(position) {
         console.log('%c Fetched from Openweathermap', 'color: orangered; font-weight:bold;');
         console.log(json);
         const sec = document.getElementById('weather');
+        const divImg = document.getElementById('currentWeather');
+        const divNum = document.getElementById('tempAndFeel');
+        const divDesc = document.getElementById('desc');
 
         switch (json.weather[0].icon) {
             case '01d': // Clear Sky Day
-                sec.innerHTML = `<img src="icons/WeatherClearDay.svg">`;
+                divImg.innerHTML = `<img src="icons/WeatherClearDay.svg">`;
                 break;
             case '01n': // Clear Sky Night
-                sec.innerHTML = `<img src="icons/WeatherClearNight.svg">`;
+                divImg.innerHTML = `<img src="icons/WeatherClearNight.svg">`;
                 break;
             case '02d': // Few Clouds Day
-                sec.innerHTML = `<img src="icons/WeatherFewCloudsDay.svg">`;
+                divImg.innerHTML = `<img src="icons/WeatherFewCloudsDay.svg">`;
                 break;
             case '02n': // Few Clouds Night
-                sec.innerHTML = `<img src="icons/WeatherFewCloudsNight.svg">`;
+                divImg.innerHTML = `<img src="icons/WeatherFewCloudsNight.svg">`;
                 break;
             case '03d': // Scattered Clouds (Day + Night)
             case '03n':
-                sec.innerHTML = `<img src="icons/WeatherScatteredClouds.svg">`;
+                divImg.innerHTML = `<img src="icons/WeatherScatteredClouds.svg">`;
                 break;
             case '04d': // Broken Clouds (Day + Night)
             case '04n':
-                sec.innerHTML = `<img src="icons/WeatherBrokenClouds.svg">`;
+                divImg.innerHTML = `<img src="icons/WeatherBrokenClouds.svg">`;
                 break;
             case '09d': // Shower Rain (Day + Night)
             case '09n':
-                sec.innerHTML = `<img src="icons/WeatherShowerRain.svg">`;
+                divImg.innerHTML = `<img src="icons/WeatherShowerRain.svg">`;
                 break;
             case '10d': // Rain Day
-                sec.innerHTML = `<img src="icons/WeatherRainDay.svg">`;
+                divImg.innerHTML = `<img src="icons/WeatherRainDay.svg">`;
                 break;
             case '10n': // Rain Night
-                sec.innerHTML = `<img src="icons/WeatherRainNight.svg">`;
+                divImg.innerHTML = `<img src="icons/WeatherRainNight.svg">`;
                 break;
             case '11d': // Thunderstorm (Day + Night)
             case '11n':
-                sec.innerHTML = `<img src="icons/WeatherThunderstorm.svg">`;
+                divImg.innerHTML = `<img src="icons/WeatherThunderstorm.svg">`;
                 break;
             case '13d': // Snow (Day + Night)
             case '13n':
-                sec.innerHTML = `<img src="icons/WeatherSnow.svg">`;
+                divImg.innerHTML = `<img src="icons/WeatherSnow.svg">`;
                 break;
             case '50d': // Mist (Day + Night)
             case '50n':
-                sec.innerHTML = `<img src="icons/WeatherMist.svg">`;
+                divImg.innerHTML = `<img src="icons/WeatherMist.svg">`;
                 break;
         }
 
-        sec.innerHTML += `<h2>${json.weather[0].main}</h2>
-                          <p>${json.weather[0].description}</p>
-                          <p id="temp">Temperature: ${json.main.temp} °C</p>`;
+        divNum.innerHTML += `<p id="temp">${json.main.temp} °C</p>
+                          <p id="feel">Feels like ${Math.round((json.main.temp - json.main.feels_like) * 10) / 10} °C</p>`;
+
+        divDesc.innerHTML += `<h2>${json.weather[0].main}</h2>
+                          <p>${json.weather[0].description}</p>`;
+
     }).catch(function (error) {
         console.log('Error: ' + error);
     });
