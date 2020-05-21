@@ -58,6 +58,19 @@ main{
 }
 #weather img{
     width: 100%;
+
+    animation: bouncy 2s ease-in-out infinite;
+}
+@keyframes bouncy {
+    0%{
+        transform: scale(1, 1);
+    }
+    50%{
+        transform: scale(1.1, 1.1);
+    }
+    100%{
+        transform: scale(1. 1);
+    }
 }
 #weather h2{
     margin: 0 0 0 0;
@@ -100,6 +113,7 @@ main{
     background-color: black;
     color: white;
     text-align: center;
+    z-index: 1;
 
     transition: 200ms ease;
 }

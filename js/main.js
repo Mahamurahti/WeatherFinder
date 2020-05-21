@@ -8,12 +8,12 @@ function getWeatherData(position) {
     // Fetching Weather data from Openweathermap
     // API key: c50d08ff7a7d0ee1c09a3f597d3e83bc
     fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${currentLocation.latitude}&lon=${currentLocation.longitude}&units=metric&lang=en&appid=c50d08ff7a7d0ee1c09a3f597d3e83bc`).then(function (response) {
+        // https://api.openweathermap.org/data/2.5/weather?lat=${currentLocation.latitude}&lon=${currentLocation.longitude}&units=metric&lang=en&appid=c50d08ff7a7d0ee1c09a3f597d3e83bc
+        `https://api.openweathermap.org/data/2.5/weather?q=Moscow&units=metric&lang=en&appid=c50d08ff7a7d0ee1c09a3f597d3e83bc`).then(function (response) {
         return response.json();
     }).then(function (json) {
         console.log('%c Fetched from Openweathermap', 'color: orangered; font-weight:bold;');
         console.log(json);
-        const sec = document.getElementById('weather');
         const divImg = document.getElementById('currentWeather');
         const divNum = document.getElementById('tempAndFeel');
         const divDesc = document.getElementById('desc');
