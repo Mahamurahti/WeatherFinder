@@ -34,7 +34,7 @@ main{
 #backgroundAnimation{
     width: 100%;
     height: 100vh;
-    background: linear-gradient(45deg, skyblue, aliceblue);
+    background-image: linear-gradient(45deg, skyblue, aliceblue);
     background-size: 500% 500%;
     position: relative;
 
@@ -83,10 +83,10 @@ main{
     width: 20%;
     min-width: 12rem;
 }
-#location{
+    #location{
     font-size: 20px;
 }
-#weather #tempAndFeel{
+#weather #weatherInfo{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -114,7 +114,7 @@ main{
     #currentWeather{
         width: 12rem;
     }
-    #weather #tempAndFeel{
+    #weather #weatherInfo{
         margin: 0 0 0 0;
         justify-content: left;
         align-items: baseline;
