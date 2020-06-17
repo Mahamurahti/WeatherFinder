@@ -1,0 +1,141 @@
+/* ROOT, MAIN AND BODY */
+:root{
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+body::-webkit-scrollbar{
+    width: 0.5rem;
+}
+body::-webkit-scrollbar-track{
+    background: black;
+}
+body::-webkit-scrollbar-thumb{
+    background: white;
+}
+
+main{
+    text-transform: uppercase;
+    margin-left: 7rem;
+    padding: 1rem;
+}
+@media only screen and (max-width: 700px){
+    main{
+        margin-left: 2rem;
+    }
+}
+/* MAP */
+#mapid{
+    height: 97vh;
+    width: 100%;
+
+    z-index: 0;
+}
+/* BACKGROUND ANIMATION */
+#backgroundAnimation{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, blue, white, purple);
+    background-size: 500% 500%;
+    position: relative;
+
+    animation: moveBackground 10s ease infinite;
+}
+@keyframes moveBackground {
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+}
+/* NAVIGATION BAR */
+.navBar{
+    position: fixed;
+    background-color: black;
+    color: white;
+    text-align: center;
+    z-index: 1;
+
+    transition: 200ms ease;
+}
+.navLink p{
+    display: none;
+    margin-left: 1rem;
+}
+.navBarUl{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.navItem{
+    width: 100%;
+}
+.navItem img {
+    max-width: 3rem;
+    padding: 2rem;
+}
+.navItem:last-child{
+    margin-top: auto;
+}
+.navLink{
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: white;
+    text-decoration: none;
+
+    transition: 200ms ease;
+}
+.navLink:hover{
+    filter: invert(100%);
+    background-color: orangered;
+}
+@media only screen and (max-width: 700px){
+    .navBar{
+        width: 100vw;
+        bottom: 0;
+        height: 5rem;
+    }
+    .navBarUl{
+        flex-direction: row;
+    }
+    .navLink{
+        justify-content: center;
+    }
+    .navItem img {
+        max-width: 3rem;
+        padding: 1rem;
+    }
+    main{
+        margin-left: 0;
+    }
+    #mapid{
+        height: 88vh;
+    }
+}
+@media only screen and (min-width: 700px){
+    .navBar{
+        width: 7rem;
+        height: 100vh;
+    }
+    .navBar:hover{
+        width: 18rem;
+    }
+    .navBar:hover .navLink p{
+        display: block;
+    }
+}

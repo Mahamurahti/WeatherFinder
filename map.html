@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Map</title>
+
+    <link href="css/mappageStyles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section id="backgroundAnimation">
+        <nav class="navBar">
+            <ul class="navBarUl">
+                <li class="navItem">
+                    <a href="Index.html" class="navLink">
+                        <img src="icons/Cloud.svg" alt="Navigation Bar Weather">
+                        <p>Weather</p>
+                    </a>
+                </li>
+                <li class="navItem">
+                    <a href="map.html" class="navLink">
+                        <img src="icons/Map.svg" alt="Navigation Bar Map">
+                        <p>Map</p>
+                    </a>
+                </li>
+                <li class="navItem">
+                    <a href="#" class="navLink">
+                        <img src="icons/Theme.svg" alt="Navigation Bar Theme">
+                        <p>Theme</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+
+            <div id="mapid" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0"
+                style="position: relative;">
+                <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(-5px, 0px, 0px);">
+                    <div class="leaflet-pane leaflet-tile-pane">
+                        <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
+                            <div class="leaflet-tile-container leaflet-zoom-animated"
+                                style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt=""
+                                    role="presentation" src="https://c.tile.openstreetmap.org/8/145/73.png"
+                                    class="leaflet-tile leaflet-tile-loaded"
+                                    style="width: 256px; height: 256px; transform: translate3d(402px, 24px, 0px); opacity: 1;"><img
+                                    alt="" role="presentation" src="https://b.tile.openstreetmap.org/8/145/72.png"
+                                    class="leaflet-tile leaflet-tile-loaded"
+                                    style="width: 256px; height: 256px; transform: translate3d(402px, -232px, 0px); opacity: 1;"><img
+                                    alt="" role="presentation" src="https://b.tile.openstreetmap.org/8/144/73.png"
+                                    class="leaflet-tile leaflet-tile-loaded"
+                                    style="width: 256px; height: 256px; transform: translate3d(146px, 24px, 0px); opacity: 1;"><img
+                                    alt="" role="presentation" src="https://a.tile.openstreetmap.org/8/146/73.png"
+                                    class="leaflet-tile leaflet-tile-loaded"
+                                    style="width: 256px; height: 256px; transform: translate3d(658px, 24px, 0px); opacity: 1;"><img
+                                    alt="" role="presentation" src="https://a.tile.openstreetmap.org/8/145/74.png"
+                                    class="leaflet-tile leaflet-tile-loaded"
+                                    style="width: 256px; height: 256px; transform: translate3d(402px, 280px, 0px); opacity: 1;"><img
+                                    alt="" role="presentation" src="https://a.tile.openstreetmap.org/8/144/72.png"
+                                    class="leaflet-tile leaflet-tile-loaded"
+                                    style="width: 256px; height: 256px; transform: translate3d(146px, -232px, 0px); opacity: 1;"><img
+                                    alt="" role="presentation" src="https://c.tile.openstreetmap.org/8/146/72.png"
+                                    class="leaflet-tile leaflet-tile-loaded"
+                                    style="width: 256px; height: 256px; transform: translate3d(658px, -232px, 0px); opacity: 1;"><img
+                                    alt="" role="presentation" src="https://c.tile.openstreetmap.org/8/144/74.png"
+                                    class="leaflet-tile leaflet-tile-loaded"
+                                    style="width: 256px; height: 256px; transform: translate3d(146px, 280px, 0px); opacity: 1;"><img
+                                    alt="" role="presentation" src="https://b.tile.openstreetmap.org/8/146/74.png"
+                                    class="leaflet-tile leaflet-tile-loaded"
+                                    style="width: 256px; height: 256px; transform: translate3d(658px, 280px, 0px); opacity: 1;"><img
+                                    alt="" role="presentation" src="https://a.tile.openstreetmap.org/8/143/73.png"
+                                    class="leaflet-tile leaflet-tile-loaded"
+                                    style="width: 256px; height: 256px; transform: translate3d(-110px, 24px, 0px); opacity: 1;"><img
+                                    alt="" role="presentation" src="https://b.tile.openstreetmap.org/8/147/73.png"
+                                    class="leaflet-tile leaflet-tile-loaded"
+                                    style="width: 256px; height: 256px; transform: translate3d(914px, 24px, 0px); opacity: 1;"><img
+                                    alt="" role="presentation" src="https://c.tile.openstreetmap.org/8/143/72.png"
+                                    class="leaflet-tile leaflet-tile-loaded"
+                                    style="width: 256px; height: 256px; transform: translate3d(-110px, -232px, 0px); opacity: 1;"><img
+                                    alt="" role="presentation" src="https://a.tile.openstreetmap.org/8/147/72.png"
+                                    class="leaflet-tile leaflet-tile-loaded"
+                                    style="width: 256px; height: 256px; transform: translate3d(914px, -232px, 0px); opacity: 1;"><img
+                                    alt="" role="presentation" src="https://b.tile.openstreetmap.org/8/143/74.png"
+                                    class="leaflet-tile leaflet-tile-loaded"
+                                    style="width: 256px; height: 256px; transform: translate3d(-110px, 280px, 0px); opacity: 1;"><img
+                                    alt="" role="presentation" src="https://c.tile.openstreetmap.org/8/147/74.png"
+                                    class="leaflet-tile leaflet-tile-loaded"
+                                    style="width: 256px; height: 256px; transform: translate3d(914px, 280px, 0px); opacity: 1;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="leaflet-pane leaflet-shadow-pane"></div>
+                    <div class="leaflet-pane leaflet-overlay-pane"></div>
+                    <div class="leaflet-pane leaflet-marker-pane">
+                        <div class="leaflet-marker-icon red-icon leaflet-zoom-animated leaflet-interactive" tabindex="0"
+                            style="margin-left: -12px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(571px, 250px, 0px); z-index: 250;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(532px, 115px, 0px); z-index: 115;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(582px, 270px, 0px); z-index: 270;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(622px, 253px, 0px); z-index: 253;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(531px, 270px, 0px); z-index: 270;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(509px, 234px, 0px); z-index: 234;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(667px, 189px, 0px); z-index: 189;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(614px, 243px, 0px); z-index: 243;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(483px, 270px, 0px); z-index: 270;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(578px, 268px, 0px); z-index: 268;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(622px, 255px, 0px); z-index: 255;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(509px, 239px, 0px); z-index: 239;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(626px, 254px, 0px); z-index: 254;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(541px, 252px, 0px); z-index: 252;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(549px, 141px, 0px); z-index: 141;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(549px, 138px, 0px); z-index: 138;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(534px, 269px, 0px); z-index: 269;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(532px, 268px, 0px); z-index: 268;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(483px, 270px, 0px); z-index: 270;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(524px, 260px, 0px); z-index: 260;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(616px, 251px, 0px); z-index: 251;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(590px, 243px, 0px); z-index: 243;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(580px, 217px, 0px); z-index: 217;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(608px, 242px, 0px); z-index: 242;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(546px, 178px, 0px); z-index: 178;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(571px, 205px, 0px); z-index: 205;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(557px, 132px, 0px); z-index: 132;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(515px, 113px, 0px); z-index: 113;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(510px, 231px, 0px); z-index: 231;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(565px, 185px, 0px); z-index: 185;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(660px, 256px, 0px); z-index: 256;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(508px, 232px, 0px); z-index: 232;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(535px, 115px, 0px); z-index: 115;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(547px, 141px, 0px); z-index: 141;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(559px, 129px, 0px); z-index: 129;">
+                        </div>
+                        <div class="leaflet-marker-icon brown-icon leaflet-zoom-animated leaflet-interactive"
+                            tabindex="0"
+                            style="margin-left: -15px; margin-top: -1px; width: 20px; height: 20px; transform: translate3d(559px, 144px, 0px); z-index: 144;">
+                        </div>
+                    </div>
+                    <div class="leaflet-pane leaflet-tooltip-pane"></div>
+                    <div class="leaflet-pane leaflet-popup-pane"></div>
+                    <div class="leaflet-proxy leaflet-zoom-animated"
+                        style="transform: translate3d(37289px, 18914px, 0px) scale(128);"></div>
+                </div>
+                <div class="leaflet-control-container">
+                    <div class="leaflet-top leaflet-left">
+                        <div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in"
+                                href="#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a
+                                class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button"
+                                aria-label="Zoom out">−</a></div>
+                    </div>
+                    <div class="leaflet-top leaflet-right"></div>
+                    <div class="leaflet-bottom leaflet-left"></div>
+                    <div class="leaflet-bottom leaflet-right">
+                        <div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com"
+                                title="A JS library for interactive maps">Leaflet</a> | © <a
+                                href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</div>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+        <script src="js/map.js"></script>
+    </section>
+</body>
+
+</html>

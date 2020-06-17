@@ -147,7 +147,7 @@ function getWeatherData(position) {
                 break;
         }
 
-        divInfo.innerHTML += `<p id="temp">${json.main.temp} °C</p>
+        divInfo.innerHTML += `<h2 id="temp">${Math.round(json.main.temp)} °C</h2>
         <h2>${json.weather[0].main}</h2>
         <h2 id="feel">Feels like ${json.main.feels_like} °C</h2>`;
 
@@ -234,12 +234,12 @@ function getForecast(position) {
                     break;
             }
 
-            let dateTime = json.list[i].dt_txt.split(" ");
-            let date = dateTime[0].split("-");
-            let formattedDate = date[2] + "." + date[1] + "." + date[0];
-            let time = dateTime[1].slice(0, -3);
+            let dateTime = json.list[i].dt_txt.split(" ");                  // Splitting the time info
+            let date = dateTime[0].split("-");                              // First part is the date which we split again
+            let formattedDate = date[2] + "." + date[1] + "." + date[0];    // We reconstruct the date to match our needs (2020-06-17 -> 17.06.2020)
+            let time = dateTime[1].slice(0, -3);                            // Second part is the time from which we slice the seconds away
 
-            li.innerHTML += `<h2 id="futTemp">${json.list[i].main.temp} °C</h2>
+            li.innerHTML += `<h2 id="futTemp">${Math.round(json.list[i].main.temp)} °C</h2>
             <p id="futTime">${time}</p>
             <p id="futDate">${formattedDate}</p>`;
 
