@@ -148,7 +148,7 @@ function getWeatherData(position) {
         }
 
         divInfo.innerHTML += `<h2 id="temp">${Math.round(json.main.temp)} °C</h2>
-        <h2>${json.weather[0].main}</h2>
+        <h2>${json.weather[0].main} / Humidity:  ${json.main.humidity}%</h2>
         <h2 id="feel">Feels like ${json.main.feels_like} °C</h2>`;
 
         backgroundAnimation.style.backgroundImage = 'linear-gradient(' + orientation + ', ' + colorOne + ', ' + colorTwo + ')';
@@ -170,6 +170,9 @@ function getForecast(position) {
     }).then(function (json) {
         console.log('%c Fetched from Openweathermap: Forecast', 'color: green; font-weight:bold;');
         console.log(json);
+
+        const divSum = document.getElementById("summary");
+        divSum.innerHTML += `<p>for <strong>5 days</strong> every <strong>3 hours</strong></p>`;
 
         const ul = document.createElement("ul");
 
@@ -239,8 +242,8 @@ function getForecast(position) {
             let formattedDate = date[2] + "." + date[1] + "." + date[0];    // We reconstruct the date to match our needs (2020-06-17 -> 17.06.2020)
             let time = dateTime[1].slice(0, -3);                            // Second part is the time from which we slice the seconds away
 
-            li.innerHTML += `<h2 id="futTemp">${Math.round(json.list[i].main.temp)} °C</h2>
-            <p id="futTime">${time}</p>
+            li.innerHTML += `<h2 id="futTemp">${Math.round(json.list[i].main.temp)} °C<i> / ${Math.round(json.list[i].main.feels_like)} °C</i></h2>
+            <p id="futDesc">${json.list[i].weather[0].description}</p><p id="futTime">${time}</p>
             <p id="futDate">${formattedDate}</p>`;
 
             ul.appendChild(li);
