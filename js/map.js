@@ -5,6 +5,37 @@ let map = L.map('mapid');
 
 navigator.geolocation.getCurrentPosition(getPosAndSurroundings, error);
 
+const theme = document.getElementById("theme");
+const bg = document.getElementById("backgroundAnimation");
+const themeText = document.getElementById("themeText");
+
+theme.addEventListener("click", function(evt){
+    if(bg.classList.contains('normal')){
+        bg.classList.replace('normal', 'mystic');
+        themeText.innerText = "Normalize";
+
+        localStorage.setItem('theme', 'mystic');
+    }else{
+        bg.classList.replace('mystic', 'normal');
+        themeText.innerText = "Mystify";
+
+        localStorage.setItem('theme', 'normal');
+    }
+});
+
+const inStorage = localStorage.getItem('theme');
+if(inStorage){
+    bg.classList.add(inStorage);
+}else{
+    bg.classList.add('normal');
+}
+
+if(bg.classList == 'normal'){
+    themeText.innerText = "Mystify";
+}else{
+    themeText.innerText = "Normalize";
+}
+
 function getPosAndSurroundings(pos) {
     currentPos = pos.coords;
     showMap(currentPos);

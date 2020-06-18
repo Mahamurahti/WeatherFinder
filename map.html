@@ -14,31 +14,30 @@
 </head>
 
 <body>
-    <section id="backgroundAnimation">
-        <nav class="navBar">
-            <ul class="navBarUl">
-                <li class="navItem">
-                    <a href="Index.html" class="navLink">
-                        <img src="icons/Cloud.svg" alt="Navigation Bar Weather">
-                        <p>Weather</p>
-                    </a>
-                </li>
-                <li class="navItem">
-                    <a href="map.html" class="navLink">
-                        <img src="icons/Map.svg" alt="Navigation Bar Map">
-                        <p>Map</p>
-                    </a>
-                </li>
-                <li class="navItem">
-                    <a href="#" class="navLink">
-                        <img src="icons/Theme.svg" alt="Navigation Bar Theme">
-                        <p>Theme</p>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+    <nav class="navBar">
+        <ul class="navBarUl">
+            <li class="navItem">
+                <a href="Index.html" class="navLink">
+                    <img src="icons/Cloud.svg" alt="Navigation Bar Weather">
+                    <p>Weather</p>
+                </a>
+            </li>
+            <li class="navItem">
+                <a href="map.html" class="navLink">
+                    <img src="icons/Map.svg" alt="Navigation Bar Map">
+                    <p>Map</p>
+                </a>
+            </li>
+            <li class="navItem">
+                <a class="navLink" id="theme">
+                    <img src="icons/Theme.svg" alt="Navigation Bar Theme">
+                    <p id="themeText"></p>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <section id="backgroundAnimation" class="">
         <main>
-
             <div id="mapid" class="leaflet-container leaflet-fade-anim leaflet-grab leaflet-touch-drag" tabindex="0"
                 style="position: relative;">
                 <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(-5px, 0px, 0px);">
@@ -262,8 +261,6 @@
                     </div>
                 </div>
             </div>
-
-
         </main>
         <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="

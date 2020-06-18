@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,44 +9,47 @@
     <link href="css/mainpageStyles.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
-<body>
-<section id="backgroundAnimation">
-<nav class="navBar">
-    <ul class="navBarUl">
-        <li class="navItem">
-            <a href="Index.html" class="navLink">
-                <img src="icons/Cloud.svg" alt="Navigation Bar Weather">
-                <p>Weather</p>
-            </a>
-        </li>
-        <li class="navItem">
-            <a href="map.html" class="navLink">
-                <img src="icons/Map.svg" alt="Navigation Bar Map">
-                <p>Map</p>
-            </a>
-        </li>
-        <li class="navItem">
-            <a href="#" class="navLink">
-                <img src="icons/Theme.svg" alt="Navigation Bar Theme">
-                <p>Theme</p>
-            </a>
-        </li>
-    </ul>
-</nav>
-<main>
-    <h1>Weather Now</h1>
-    <div id="location"></div>
-    <section id="weather">
-        <div id="currentWeather"></div>
-        <div id="weatherInfo"></div>
-    </section>
 
-    <h1>Weather Forecast</h1>
-    <div id="summary"></div>
-    <section id="forecast">
+
+<body>
+    <nav class="navBar">
+        <ul class="navBarUl">
+            <li class="navItem">
+                <a href="Index.html" class="navLink">
+                    <img src="icons/Cloud.svg" alt="Navigation Bar Weather">
+                    <p>Weather</p>
+                </a>
+            </li>
+            <li class="navItem">
+                <a href="map.html" class="navLink">
+                    <img src="icons/Map.svg" alt="Navigation Bar Map">
+                    <p>Map</p>
+                </a>
+            </li>
+            <li class="navItem">
+                <a class="navLink" id="theme">
+                    <img src="icons/Theme.svg" alt="Navigation Bar Theme">
+                    <p id="themeText"></p>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <section id="backgroundAnimation" class="">
+        <main>
+            <h1>Weather Now</h1>
+            <div id="location"></div>
+            <section id="weather">
+                <div id="currentWeather"></div>
+                <div id="weatherInfo"></div>
+            </section>
+
+            <h1>Weather Forecast</h1>
+            <div id="summary"></div>
+            <section id="forecast">
+            </section>
+        </main>
     </section>
-</main>
-</section>
-<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>

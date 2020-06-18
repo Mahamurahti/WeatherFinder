@@ -4,6 +4,37 @@ let currentLocation = navigator.geolocation.getCurrentPosition(getWeatherData, e
 
 let forecast = navigator.geolocation.getCurrentPosition(getForecast, error);
 
+const theme = document.getElementById("theme");
+const bg = document.getElementById("backgroundAnimation");
+const themeText = document.getElementById("themeText");
+
+theme.addEventListener("click", function(evt){
+    if(bg.classList.contains('normal')){
+        bg.classList.replace('normal', 'mystic');
+        themeText.innerText = "Normalize";
+
+        localStorage.setItem('theme', 'mystic');
+    }else{
+        bg.classList.replace('mystic', 'normal');
+        themeText.innerText = "Mystify";
+
+        localStorage.setItem('theme', 'normal');
+    }
+});
+
+const inStorage = localStorage.getItem('theme');
+if(inStorage){
+    bg.classList.add(inStorage);
+}else{
+    bg.classList.add('normal');
+}
+
+if(bg.classList == 'normal'){
+    themeText.innerText = "Mystify";
+}else{
+    themeText.innerText = "Normalize";
+}
+
 function getWeatherData(position) {
     currentLocation = position.coords;
     console.log('%c Current coordinates: [' + currentLocation.latitude + ", " + currentLocation.longitude + "]", "color:orangered; font-weight:bold;");
@@ -39,74 +70,74 @@ function getWeatherData(position) {
         switch (json.weather[0].icon) {
             case '01d': // Clear Sky Day
                 divImg.innerHTML += `<img src="icons/WeatherClearDay.svg">`;
-                colorOne = '#E9DFB2';
-                colorTwo = '#E4E4E0';
+                colorOne = '#FFF275';
+                colorTwo = '#FF8C42';
                 textColor = 'black';
                 break;
             case '01n': // Clear Sky Night
                 divImg.innerHTML += `<img src="icons/WeatherClearNight.svg">`;
-                colorOne = '#03141A';
+                colorOne = '#000022';
                 colorTwo = '#10272E';
                 textColor = 'white';
                 break;
             case '02d': // Few Clouds Day
                 divImg.innerHTML += `<img src="icons/WeatherFewCloudsDay.svg">`;
-                colorOne = '#96CCD9';
-                colorTwo = '#98B0B5';
+                colorOne = '#92DCE5';
+                colorTwo = '#ECDD7B';
                 textColor = 'black';
                 break;
             case '02n': // Few Clouds Night
                 divImg.innerHTML += `<img src="icons/WeatherFewCloudsNight.svg">`;
-                colorOne = '#03141A';
-                colorTwo = '#10272E';
+                colorOne = '#5B7B7A';
+                colorTwo = '#000022';
                 textColor = 'white';
                 break;
             case '03d': // Scattered Clouds (Day + Night)
                 divImg.innerHTML += `<img src="icons/WeatherScatteredClouds.svg">`;
-                colorOne = '#6D7E82';
-                colorTwo = '#D0E6F2';
+                colorOne = '#ADACB5';
+                colorTwo = '#B0D7FF';
                 textColor = 'black';
                 break;
             case '03n':
                 divImg.innerHTML += `<img src="icons/WeatherScatteredClouds.svg">`;
-                colorOne = '#03141A';
-                colorTwo = '#10272E';
+                colorOne = '#2D3142';
+                colorTwo = '#1E1A1D';
                 textColor = 'white';
                 break;
             case '04d': // Broken Clouds (Day + Night) 
                 divImg.innerHTML += `<img src="icons/WeatherBrokenClouds.svg">`;
-                colorOne = '#497B87';
-                colorTwo = '#D0E6F2';
+                colorOne = '#FBFAF8';
+                colorTwo = '#6E675F';
                 textColor = 'black';
                 break;
             case '04n':
                 divImg.innerHTML += `<img src="icons/WeatherBrokenClouds.svg">`;
-                colorOne = '#03141A';
+                colorOne = '#423E37';
                 colorTwo = '#10272E';
                 textColor = 'white';
                 break;
             case '09d': // Shower Rain (Day + Night)
                 divImg.innerHTML += `<img src="icons/WeatherShowerRain.svg">`;
-                colorOne = '#8194A3';
-                colorTwo = '#1583D6';
+                colorOne = '#031D44';
+                colorTwo = '#54DEFD';
                 textColor = 'black';
                 break;
             case '09n':
                 divImg.innerHTML += `<img src="icons/WeatherShowerRain.svg">`;
-                colorOne = '#03141A';
-                colorTwo = '#10272E';
+                colorOne = '#1C3738';
+                colorTwo = '#390099';
                 textColor = 'white';
                 break;
             case '10d': // Rain Day
                 divImg.innerHTML += `<img src="icons/WeatherRainDay.svg">`;
-                colorOne = '#4F7AD6';
-                colorTwo = '#8E939D';
+                colorOne = '#454ADE';
+                colorTwo = '#C0E8F9';
                 textColor = 'black';
                 break;
             case '10n': // Rain Night
                 divImg.innerHTML += `<img src="icons/WeatherRainNight.svg">`;
-                colorOne = '#03141A';
-                colorTwo = '#10272E';
+                colorOne = '#725AC1';
+                colorTwo = '#011638';
                 textColor = 'white';
                 break;
             case '11d': // Thunderstorm (Day + Night)
@@ -117,31 +148,31 @@ function getWeatherData(position) {
                 break;
             case '11n':
                 divImg.innerHTML += `<img src="icons/WeatherThunderstorm.svg">`;
-                colorOne = '#A19B4D';
-                colorTwo = '#10272E';
+                colorOne = '#B89714';
+                colorTwo = '#000000';
                 textColor = 'white';
                 break;
             case '13d': // Snow (Day + Night)
                 divImg.innerHTML += `<img src="icons/WeatherSnow.svg">`;
                 colorOne = '#BFEFF2';
-                colorTwo = '#B5E2E6';
+                colorTwo = '#FFFFFF';
                 textColor = 'black';
                 break;
             case '13n':
                 divImg.innerHTML += `<img src="icons/WeatherSnow.svg">`;
-                colorOne = '#03141A';
-                colorTwo = '#10272E';
+                colorOne = '#F9F8F8';
+                colorTwo = '#000000';
                 textColor = 'white';
                 break;
             case '50d': // Mist (Day + Night)
                 divImg.innerHTML += `<img src="icons/WeatherMist.svg">`;
-                colorOne = '#CCE0E3';
-                colorTwo = '#B9CDD0';
+                colorOne = '#7798AB';
+                colorTwo = '#FFD6E0';
                 textColor = 'black';
                 break;
             case '50n':
                 divImg.innerHTML += `<img src="icons/WeatherMist.svg">`;
-                colorOne = '#03141A';
+                colorOne = '#788585';
                 colorTwo = '#10272E';
                 textColor = 'white';
                 break;
