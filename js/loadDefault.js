@@ -9,7 +9,7 @@ fetch(
 ).then(function (response) {
     return response.json();
 }).then(function (json) {
-    console.log('%c Fetched from Openweathermap: Weather', 'color: green; font-weight:bold;');
+    console.log('%c Fetched from Openweathermap: Weather (Default)', 'color: green; font-weight:bold;');
     console.log(json);
 
     const divLoc = document.getElementById('location');
@@ -162,7 +162,7 @@ fetch(
 ).then(function (response) {
     return response.json();
 }).then(function (json) {
-    console.log('%c Fetched from Openweathermap: Forecast', 'color: green; font-weight:bold;');
+    console.log('%c Fetched from Openweathermap: Forecast (Default)', 'color: green; font-weight:bold;');
     console.log(json);
 
     const ul = document.createElement("ul");

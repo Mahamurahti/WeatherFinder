@@ -169,6 +169,9 @@ i, #futDesc{
     transition: all .5s ease;
     margin: 0px;
 }
+#futTime, #futDate{
+    font-size: 18px;
+}
 #futTemp{
     margin: 20px 0px 0px 0px;
 }

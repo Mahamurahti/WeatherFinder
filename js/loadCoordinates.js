@@ -17,7 +17,7 @@ function getWeatherData(position) {
     ).then(function (response) {
         return response.json();
     }).then(function (json) {
-        console.log('%c Fetched from Openweathermap: Weather', 'color: orangered; font-weight:bold;');
+        console.log('%c Fetched from Openweathermap: Weather (Coordinates)', 'color: orangered; font-weight:bold;');
         console.log(json);
 
         const divLoc = document.getElementById('location');
@@ -173,7 +173,7 @@ function getForecast(position) {
     ).then(function (response) {
         return response.json();
     }).then(function (json) {
-        console.log('%c Fetched from Openweathermap: Forecast', 'color: orangered; font-weight:bold;');
+        console.log('%c Fetched from Openweathermap: Forecast (Coordinates)', 'color: orangered; font-weight:bold;');
         console.log(json);
 
         const divForecast = document.getElementById("forecast");
@@ -250,9 +250,18 @@ function getForecast(position) {
             let formattedDate = date[2] + "." + date[1] + "." + date[0];    // We reconstruct the date to match our needs (2020-06-17 -> 17.06.2020)
             let time = dateTime[1].slice(0, -3);                            // Second part is the time from which we slice the seconds away
 
+            function getDayName(dateStr, locale)
+            {
+                let date = new Date(dateStr);
+                return date.toLocaleDateString(locale, { weekday: 'short' });        
+            }
+
+            let enFormDate = date[1] + "/" + date[2] + "/" + date[0]
+            let weekDay = getDayName(enFormDate, "en-EN");
+
             li.innerHTML += `<h2 id="futTemp">${Math.round(json.list[i].main.temp)} °C<i> / ${Math.round(json.list[i].main.feels_like)} °C</i></h2>
             <p id="futDesc">${json.list[i].weather[0].description}</p><p id="futTime">${time}</p>
-            <p id="futDate">${formattedDate}</p>`;
+            <p id="futDate">${weekDay} - ${formattedDate}</p>`;
 
             ul.appendChild(li);
         }
