@@ -1,5 +1,8 @@
 'use strict';
 
+// This script runs, if the users grants the website
+// permission to use their location.
+
 let currentLocation = navigator.geolocation.getCurrentPosition(getWeatherData, error);
 
 let forecast = navigator.geolocation.getCurrentPosition(getForecast, error);
@@ -36,6 +39,7 @@ function getWeatherData(position) {
 
         divLoc.innerHTML = `<p>in <strong>${json.name}, ${json.sys.country}</strong> as of ${hours}:${minutes}`;
 
+        // Loading a separate picture and setting the color scheme, depending on the weather.
         switch (json.weather[0].icon) {
             case '01d': // Clear Sky Day
                 divImg.innerHTML = `<img src="icons/WeatherClearDay.svg">`;
@@ -151,6 +155,7 @@ function getWeatherData(position) {
         <h2>${json.weather[0].main} / Humidity:  ${json.main.humidity}%</h2>
         <h2 id="feel">Feels like ${json.main.feels_like} °C</h2>`;
 
+        // Setting the color scheme
         backgroundAnimation.style.backgroundImage = 'linear-gradient(' + orientation + ', ' + colorOne + ', ' + colorTwo + ')';
         main.style.color = textColor;
 
@@ -177,6 +182,7 @@ function getForecast(position) {
         const ul = document.createElement("ul");
         ul.classList.add('listOfForecast');
 
+        // Updating information of the forecast of the weather.
         for (let i = 0; i < json.list.length; i++) {
 
             const li = document.createElement("li");

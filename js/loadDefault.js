@@ -1,35 +1,6 @@
 'use strict';
 
-const theme = document.getElementById("theme");
-const bg = document.getElementById("backgroundAnimation");
-const themeText = document.getElementById("themeText");
-
-theme.addEventListener("click", function(evt){
-    if(bg.classList.contains('normal')){
-        bg.classList.replace('normal', 'mystic');
-        themeText.innerText = "Normalize";
-
-        localStorage.setItem('theme', 'mystic');
-    }else{
-        bg.classList.replace('mystic', 'normal');
-        themeText.innerText = "Mystify";
-
-        localStorage.setItem('theme', 'normal');
-    }
-});
-
-const inStorage = localStorage.getItem('theme');
-if(inStorage){
-    bg.classList.add(inStorage);
-}else{
-    bg.classList.add('normal');
-}
-
-if(bg.classList == 'normal'){
-    themeText.innerText = "Mystify";
-}else{
-    themeText.innerText = "Normalize";
-}
+// Default load script, if location permission is not granted. 
 
 // Fetching Weather data from Openweathermap: Helsinki
 // API key: c50d08ff7a7d0ee1c09a3f597d3e83bc
@@ -60,6 +31,7 @@ fetch(
 
     divLoc.innerHTML += `<p>in <strong>${json.name}, ${json.sys.country}</strong> as of ${hours}:${minutes}`;
 
+    // Loading a separate picture and setting the color scheme, depending on the weather.
     switch (json.weather[0].icon) {
         case '01d': // Clear Sky Day
             divImg.innerHTML += `<img src="icons/WeatherClearDay.svg">`;
@@ -175,6 +147,7 @@ fetch(
         <h2>${json.weather[0].main} / Humidity:  ${json.main.humidity}%</h2>
         <h2 id="feel">Feels like ${json.main.feels_like} °C</h2>`;
 
+    // Setting the color scheme
     backgroundAnimation.style.backgroundImage = 'linear-gradient(' + orientation + ', ' + colorOne + ', ' + colorTwo + ')';
     main.style.color = textColor;
 
@@ -195,6 +168,7 @@ fetch(
     const ul = document.createElement("ul");
     ul.classList.add('listOfForecast');
 
+    // Adding information of the forecast of the weather.
     for (let i = 0; i < json.list.length; i++) {
 
         const li = document.createElement("li");
@@ -275,3 +249,38 @@ fetch(
 }).catch(function (error) {
     console.log('Error: ' + error);
 });
+
+
+// Saving the theme that user has toggled
+const theme = document.getElementById("theme");
+const bg = document.getElementById("backgroundAnimation");
+const themeText = document.getElementById("themeText");
+
+// Setting the theme, if the user has a preferred one.
+theme.addEventListener("click", function(evt){
+    if(bg.classList.contains('normal')){
+        bg.classList.replace('normal', 'mystic');
+        themeText.innerText = "Normalize";
+
+        localStorage.setItem('theme', 'mystic');
+    }else{
+        bg.classList.replace('mystic', 'normal');
+        themeText.innerText = "Mystify";
+
+        localStorage.setItem('theme', 'normal');
+    }
+});
+
+// Checking if the user has a preferred theme.
+const inStorage = localStorage.getItem('theme');
+if(inStorage){
+    bg.classList.add(inStorage);
+}else{
+    bg.classList.add('normal');
+}
+
+if(bg.classList == 'normal'){
+    themeText.innerText = "Mystify";
+}else{
+    themeText.innerText = "Normalize";
+}
