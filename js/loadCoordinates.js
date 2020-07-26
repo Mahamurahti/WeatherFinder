@@ -24,11 +24,11 @@ function getWeatherData(position) {
         const divImg = document.getElementById('currentWeather');
         const divInfo = document.getElementById('weatherInfo');
         let hours = new Date().getHours();
-        if(hours < 10){
+        if (hours < 10) {
             hours = "0" + hours;
         }
         let minutes = new Date().getMinutes();
-        if(minutes < 10){
+        if (minutes < 10) {
             minutes = "0" + minutes;
         }
 
@@ -250,10 +250,9 @@ function getForecast(position) {
             let formattedDate = date[2] + "." + date[1] + "." + date[0];    // We reconstruct the date to match our needs (2020-06-17 -> 17.06.2020)
             let time = dateTime[1].slice(0, -3);                            // Second part is the time from which we slice the seconds away
 
-            function getDayName(dateStr, locale)
-            {
+            function getDayName(dateStr, locale) {
                 let date = new Date(dateStr);
-                return date.toLocaleDateString(locale, { weekday: 'short' });        
+                return date.toLocaleDateString(locale, { weekday: 'short' });
             }
 
             let enFormDate = date[1] + "/" + date[2] + "/" + date[0]

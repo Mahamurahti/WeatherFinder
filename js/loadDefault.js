@@ -236,9 +236,17 @@ fetch(
         let formattedDate = date[2] + "." + date[1] + "." + date[0];    // We reconstruct the date to match our needs (2020-06-17 -> 17.06.2020)
         let time = dateTime[1].slice(0, -3);                            // Second part is the time from which we slice the seconds away
 
+        function getDayName(dateStr, locale) {
+            let date = new Date(dateStr);
+            return date.toLocaleDateString(locale, { weekday: 'short' });
+        }
+
+        let enFormDate = date[1] + "/" + date[2] + "/" + date[0]
+        let weekDay = getDayName(enFormDate, "en-EN");
+
         li.innerHTML += `<h2 id="futTemp">${Math.round(json.list[i].main.temp)} °C<i> / ${Math.round(json.list[i].main.feels_like)} °C</i></h2>
             <p id="futDesc">${json.list[i].weather[0].description}</p><p id="futTime">${time}</p>
-            <p id="futDate">${formattedDate}</p>`;
+            <p id="futDate">${weekDay} - ${formattedDate}</p>`;
 
         ul.appendChild(li);
     }
@@ -257,13 +265,13 @@ const bg = document.getElementById("backgroundAnimation");
 const themeText = document.getElementById("themeText");
 
 // Setting the theme, if the user has a preferred one.
-theme.addEventListener("click", function(evt){
-    if(bg.classList.contains('normal')){
+theme.addEventListener("click", function (evt) {
+    if (bg.classList.contains('normal')) {
         bg.classList.replace('normal', 'mystic');
         themeText.innerText = "Normalize";
 
         localStorage.setItem('theme', 'mystic');
-    }else{
+    } else {
         bg.classList.replace('mystic', 'normal');
         themeText.innerText = "Mystify";
 
@@ -273,14 +281,14 @@ theme.addEventListener("click", function(evt){
 
 // Checking if the user has a preferred theme.
 const inStorage = localStorage.getItem('theme');
-if(inStorage){
+if (inStorage) {
     bg.classList.add(inStorage);
-}else{
+} else {
     bg.classList.add('normal');
 }
 
-if(bg.classList == 'normal'){
+if (bg.classList == 'normal') {
     themeText.innerText = "Mystify";
-}else{
+} else {
     themeText.innerText = "Normalize";
 }
