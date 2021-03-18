@@ -1,7 +1,7 @@
 # WeatherFinder
 A weather finding website project that uses the OpenWeatherMap API. Made during the summer of 2019 to train coding.
 
-[http://mahamurahti.muuta.net/](http://mahamurahti.muuta.net/)
+[https://mahamurahti.muuta.net/](https://mahamurahti.muuta.net/)
 
 ## Features
 
